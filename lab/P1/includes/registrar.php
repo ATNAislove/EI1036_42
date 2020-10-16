@@ -8,15 +8,15 @@ function handler($pdo,$table)
         $data["error"] = "No has rellenado el formulario correctamente";
         return;
     }
-    $query = "INSERT INTO     $table (client_id,username,surname,address,city,zip_code,foto_file)
+    $query = "INSERT INTO     $table (client_id,name,surname,address,city,zip_code,foto_file)
                         VALUES (?,?,?,?,?,?,?)";
                        
     echo $query;
     try { 
-        $a=array($_REQUEST['client_id'], $_REQUEST['username'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file']   );
+        $a=array($_REQUEST['client_id'], $_REQUEST['name'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file']   );
         print_r ($a);
         $consult = $pdo->prepare($query);
-        $a=$consult->execute(array($_REQUEST['client_id'], $_REQUEST['username'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file'] ));
+        $a=$consult->execute(array($_REQUEST['client_id'], $_REQUEST['name'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file'] ));
         if (1>$a)echo "InCorrecto";
     
     } catch (PDOExeption $e) {

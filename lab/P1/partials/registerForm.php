@@ -10,7 +10,7 @@
 		<br/>
 		<label for="nombre">Nombre</label>
 		<br/>
-		<input type="text" name="username" class="item_requerid" size="20" maxlength="25" value="<?php print $userName ?>"
+		<input type="text" name="name" class="item_requerid" size="20" maxlength="25" value="<?php print $name ?>"
 		 placeholder="Miguel" />
 		<br/>
 		<label for="surname">Apellido</label>
