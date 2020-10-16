@@ -35,7 +35,7 @@
 		<br/>
 		<label for="foto_file">Foto</label>
 		<br/>
-		<input type="url" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $foto_file ?>"
+		<input type="url" name="foto_file" class="item_requerid" size="20" maxlength="25" value="<?php print $foto_file ?>"
 		 placeholder="./img/Logo-ACCE.gif" />
 		<br/>
 		<p><input type="submit" value="Enviar">
