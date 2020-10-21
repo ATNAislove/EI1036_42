@@ -1,22 +1,22 @@
 <?php
-include("./gestionBD.php");
+//include("./gestionBD.php");
 
 function handler($pdo,$table)
 {
     $datos = $_REQUEST;
-    if (count($_REQUEST) < 7) {
+    if (count($_REQUEST) < 6) {
         $data["error"] = "No has rellenado el formulario correctamente";
         return;
     }
-    $query = "INSERT INTO     $table (client_id,name,surname,address,city,zip_code,foto_file)
-                        VALUES (?,?,?,?,?,?,?)";
+    $query = "INSERT INTO     $table (name,surname,address,city,zip_code,foto_file)
+                        VALUES (?,?,?,?,?,?)";
                        
     echo $query;
     try { 
-        $a=array($_REQUEST['client_id'], $_REQUEST['name'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file']   );
+        $a=array($_REQUEST['name'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,intval($_REQUEST['zip_code']),$_REQUEST['foto_file']   );
         print_r ($a);
         $consult = $pdo->prepare($query);
-        $a=$consult->execute(array($_REQUEST['client_id'], $_REQUEST['name'],$_REQUEST['surname'],$_REQUEST['address'] ,$_REQUEST['city'] ,$_REQUEST['zip_code'],$_REQUEST['foto_file'] ));
+        $a=$consult->execute($a);
         if (1>$a)echo "InCorrecto";
     
     } catch (PDOExeption $e) {
@@ -24,7 +24,7 @@ function handler($pdo,$table)
     }
 }
 
-$table = "a_cliente";
-var_dump($_POST);
-handler( $pdo,$table);
+//$table = "a_cliente";
+//var_dump($_POST);
+//handler( $pdo,$table);
 ?>

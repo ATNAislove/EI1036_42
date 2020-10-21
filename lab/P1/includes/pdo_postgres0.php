@@ -1,5 +1,5 @@
 <?php
-
+include(dirname(__FILE__)."/registrar.php");
 /** The name of the database  */
 define('DB_NAME', 'al375915_ei1036_42');
 
@@ -32,10 +32,20 @@ function ejecutarSQL($query,$valor) {
 	catch (PDOException $e) {
 		echo "Failed to get DB handle: " . $e->getMessage() . "\n";
 		echo $query."\n";
-		retun -1;
+		return -1;
 	}
 	return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
 						  
+}
+function insertarCliente($table){
+	try{
+		if (!isset($pdo)) $pdo = new PDO("pgsql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PASSWORD);
+		handler($pdo,$table);
+	}catch (PDOException $e) {
+		echo "Failed to get DB handle: " . $e->getMessage() . "\n";
+		echo $query."\n";
+		return -1;
+	}
 }
 
 ?>

@@ -41,8 +41,8 @@ $query="CREATE TABLE IF NOT EXISTS  $table (client_id SERIAL PRIMARY KEY, name C
 echo $query;
 
 $a=ejecutarSQL($pdo,$table,$query,[]);
-$query = "INSERT INTO $table (name,surname) VALUES (?,?)";
-$a=ejecutarSQL($pdo,$table,$query,['user4','pp']);
+$query = "INSERT INTO $table (client_id,name,surname, address, city, zip_code,foto_file) VALUES (?,?,?,?,?,?,?)";
+$a=ejecutarSQL($pdo,$table,$query,[0,'miguel','hernandez','granvia','castellon',12540,'https://www.google.es']);
 
 if (1>$a) {echo "InCorrecto1";}
 

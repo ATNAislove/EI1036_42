@@ -20,6 +20,7 @@ include(dirname(__FILE__)."/partials/menu.php");
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
 $table="a_cliente";
+
 switch ($action) {
     case "home":
         $central = "/holaMundo.php";
@@ -28,7 +29,7 @@ switch ($action) {
         $central = "/partials/login.php";
         break;
     case "registro":
-         $central = "/partials/registerForm.php";
+        $central = "/partials/registerForm.php";
         break;
     case "listar":
         $query = "SELECT     * FROM       $table ";
@@ -50,7 +51,7 @@ switch ($action) {
         }
         break;
     case "registrar":
-        $central = "/partials/registerForm.php";
+        insertarCliente($table);
         break;
     default:
         $data["error"] = "Accion No permitida";
